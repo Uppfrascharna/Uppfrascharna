@@ -3,171 +3,287 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Uppfräschnings Tjänster</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
 <style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: #0d0d0d;
-    color: white;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
 }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
+body{
+background:#0a0a0a;
+color:white;
 }
 
-header {
-    text-align: center;
-    padding: 40px 20px;
+header{
+padding:70px 20px;
+text-align:center;
+background:linear-gradient(135deg,#151515,#000);
+border-bottom:2px solid #d4af37;
 }
 
-header img {
-    width: 140px;
-    margin-bottom: 15px;
+.logo{
+font-size:38px;
+color:#d4af37;
+font-weight:bold;
+letter-spacing:3px;
 }
 
-h1 {
-    font-size: 32px;
-    letter-spacing: 2px;
+header p{
+margin-top:15px;
+color:#ccc;
+font-size:18px;
 }
 
-.hero {
-    text-align: center;
-    margin-bottom: 40px;
+.section{
+max-width:1100px;
+margin:auto;
+padding:60px 20px;
 }
 
-.hero p {
-    color: #ccc;
-    max-width: 600px;
-    margin: auto;
+h2{
+text-align:center;
+color:#d4af37;
+font-size:30px;
+margin-bottom:40px;
 }
 
-.packages {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+.cards{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
 }
 
-.card {
-    background: #1a1a1a;
-    border-radius: 15px;
-    padding: 25px;
-    border: 1px solid #333;
-    transition: 0.3s;
+.card{
+background:#111;
+border:1px solid #d4af37;
+border-radius:15px;
+padding:30px;
+width:320px;
+transition:0.3s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    border-color: gold;
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 20px rgba(212,175,55,0.3);
 }
 
-.card h2 {
-    color: gold;
+.card h3{
+text-align:center;
+color:#d4af37;
+margin-bottom:15px;
+letter-spacing:1px;
 }
 
-.price {
-    font-size: 20px;
-    margin: 10px 0;
+.price{
+text-align:center;
+font-size:22px;
+margin-bottom:20px;
+font-weight:bold;
 }
 
-ul {
-    padding-left: 20px;
+.card ul{
+color:#ddd;
+line-height:2;
+list-style:none;
 }
 
-.cta {
-    text-align: center;
-    margin: 50px 0;
+.card ul li::before{
+content:"✔ ";
+color:#d4af37;
 }
 
-button {
-    background: gold;
-    border: none;
-    padding: 15px 30px;
-    font-size: 16px;
-    border-radius: 30px;
-    cursor: pointer;
+button{
+display:block;
+margin:25px auto 0;
+padding:12px 30px;
+border:none;
+border-radius:30px;
+background:#d4af37;
+color:#000;
+font-weight:bold;
+cursor:pointer;
 }
 
-button:hover {
-    background: #d4af37;
+button:hover{
+background:#b8962e;
 }
 
-.contact {
-    text-align: center;
-    color: #ccc;
-    margin-top: 30px;
+.contact{
+text-align:center;
+background:#111;
+padding:50px 20px;
+border-top:2px solid #d4af37;
+}
+
+.contact p{
+color:#ddd;
+font-size:18px;
+margin:15px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:#777;
+}
+
+/* popup bokning */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+}
+
+.modal-content{
+background:#111;
+padding:30px;
+border-radius:10px;
+width:90%;
+max-width:400px;
+}
+
+.modal-content h3{
+color:#d4af37;
+margin-bottom:15px;
+text-align:center;
+}
+
+.modal-content input, .modal-content textarea{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:none;
+border-radius:5px;
+}
+
+.close{
+color:white;
+float:right;
+cursor:pointer;
+}
+
+@media(max-width:700px){
+.logo{
+font-size:26px;
+}
 }
 </style>
+
 </head>
 
 <body>
 
-<div class="container">
-
 <header>
-    <img src="logo.png" alt="Logo">
-    <h1>UPPFRÄSCHNINGS TJÄNSTER</h1>
+
+<h1 class="logo">
+UPPFRÄSCHNINGS TJÄNSTER
+</h1>
+
+<p>Vi gör ditt hem och din tomt fräschare.</p>
+<p>Kvalitet, noggrannhet och resultat i fokus.</p>
+
 </header>
 
-<div class="hero">
-    <h2>Ett välskött hem gör skillnad</h2>
-    <p>Vi hjälper dig att hålla hem och tomt fräscht – snabbt, enkelt och professionellt.</p>
-</div>
+<section class="section">
 
-<div class="packages">
+<h2>Våra paket</h2>
 
+<div class="cards">
+
+<!-- SNABBFIX -->
 <div class="card">
-    <h2>Lilla paketet</h2>
-    <div class="price">300 – 450 kr</div>
-    <ul>
-        <li>Gräsklippning</li>
-        <li>Kanttrimning</li>
-        <li>Snabb sopning av uppfart</li>
-    </ul>
+<h3>SNABBFIX</h3>
+<div class="price">300 – 450 kr</div>
+<ul>
+<li>Gräsklippning</li>
+<li>Kanttrimning</li>
+<li>Snabb sopning av uppfart</li>
+</ul>
+<button onclick="openForm('Snabbfix')">Boka</button>
 </div>
 
+<!-- HEMMAFIX -->
 <div class="card">
-    <h2>Mellanpaketet</h2>
-    <div class="price">500 – 700 kr</div>
-    <ul>
-        <li>Gräsklippning</li>
-        <li>Kanttrimning</li>
-        <li>Uppfartssopning</li>
-        <li>Fönsterputs</li>
-    </ul>
+<h3>HEMMAFIX</h3>
+<div class="price">500 – 700 kr</div>
+<ul>
+<li>Gräsklippning</li>
+<li>Kanttrimning</li>
+<li>Uppfartssopning</li>
+<li>Fönsterputs (in eller ut)</li>
+</ul>
+<button onclick="openForm('Hemmafix')">Boka</button>
 </div>
 
+<!-- HELT KLART -->
 <div class="card">
-    <h2>Mega-paketet</h2>
-    <div class="price">700 – 900 kr</div>
-    <ul>
-        <li>Gräsklippning</li>
-        <li>Kanttrimning</li>
-        <li>Uppfräschning av uppfart</li>
-        <li>Fönsterputs (inne & ute)</li>
-        <li>Borttagning av gräs/ogräs</li>
-    </ul>
+<h3>HELT KLART</h3>
+<div class="price">700 – 900 kr</div>
+<ul>
+<li>Gräsklippning</li>
+<li>Kanttrimning</li>
+<li>Uppfräschning av uppfart</li>
+<li>Fönsterputs (inne & ute)</li>
+<li>Borttagning av gräs/ogräs</li>
+</ul>
+<button onclick="openForm('Helt klart')">Boka</button>
 </div>
 
 </div>
 
-<div class="cta">
-    <h2>Boka nu</h2>
-    <button onclick="window.location.href='mailto:williammarasovic@gmail.com'">
-        Kontakta oss
-    </button>
+</section>
+
+<section class="contact">
+
+<h2>Kontakta oss</h2>
+<p>✉️ williammarasovic@gmail.com</p>
+<p>📍 Verksamma i Göteborg</p>
+
+</section>
+
+<footer>
+© 2026 Uppfräschnings Tjänster
+</footer>
+
+<!-- BOKNINGS POPUP -->
+<div class="modal" id="bookingModal">
+<div class="modal-content">
+<span class="close" onclick="closeForm()">×</span>
+<h3>Boka tjänst</h3>
+
+<form action="mailto:williammarasovic@gmail.com" method="post" enctype="text/plain">
+<input type="text" name="namn" placeholder="Ditt namn" required>
+<input type="text" name="adress" placeholder="Adress" required>
+<input type="text" name="paket" id="packageInput" readonly>
+<textarea name="meddelande" placeholder="Önskad tid / info"></textarea>
+<button type="submit">Skicka bokning</button>
+</form>
+
+</div>
 </div>
 
-<div class="contact">
-    <p>✉️ williammarasovic@gmail.com</p>
-</div>
+<script>
+function openForm(packageName){
+document.getElementById("bookingModal").style.display="flex";
+document.getElementById("packageInput").value=packageName;
+}
 
-</div>
+function closeForm(){
+document.getElementById("bookingModal").style.display="none";
+}
+</script>
 
 </body>
 </html>
