@@ -133,7 +133,8 @@ padding:20px;
 color:#777;
 }
 
-/* popup bokning */
+/* POPUP BOKNING */
+
 .modal{
 display:none;
 position:fixed;
@@ -144,6 +145,7 @@ height:100%;
 background:rgba(0,0,0,0.8);
 justify-content:center;
 align-items:center;
+z-index:1000;
 }
 
 .modal-content{
@@ -152,6 +154,7 @@ padding:30px;
 border-radius:10px;
 width:90%;
 max-width:400px;
+border:1px solid #d4af37;
 }
 
 .modal-content h3{
@@ -160,24 +163,49 @@ margin-bottom:15px;
 text-align:center;
 }
 
-.modal-content input, .modal-content textarea{
+.modal-content input,
+.modal-content textarea{
 width:100%;
-padding:10px;
+padding:12px;
 margin:10px 0;
 border:none;
 border-radius:5px;
+font-size:16px;
+font-family:Arial, sans-serif;
+}
+
+.modal-content textarea{
+min-height:100px;
+resize:vertical;
 }
 
 .close{
 color:white;
 float:right;
 cursor:pointer;
+font-size:28px;
+line-height:20px;
+}
+
+.close:hover{
+color:#d4af37;
+}
+
+.modal-content button{
+width:100%;
 }
 
 @media(max-width:700px){
+
 .logo{
 font-size:26px;
 }
+
+.card{
+width:100%;
+max-width:320px;
+}
+
 }
 </style>
 
@@ -192,9 +220,11 @@ UPPFRÄSCHNINGS TJÄNSTER
 </h1>
 
 <p>Vi gör ditt hem och din tomt fräschare.</p>
+
 <p>Kvalitet, noggrannhet och resultat i fokus.</p>
 
 </header>
+
 
 <section class="section">
 
@@ -202,88 +232,247 @@ UPPFRÄSCHNINGS TJÄNSTER
 
 <div class="cards">
 
+
 <!-- SNABBFIX -->
+
 <div class="card">
+
 <h3>SNABBFIX</h3>
-<div class="price">300 – 450 kr</div>
-<ul>
-<li>Gräsklippning</li>
-<li>Kanttrimning</li>
-<li>Snabb sopning av uppfart</li>
-</ul>
-<button onclick="openForm('Snabbfix')">Boka</button>
+
+<div class="price">
+300 – 450 kr
 </div>
+
+<ul>
+
+<li>Gräsklippning</li>
+
+<li>Kanttrimning</li>
+
+<li>Snabb sopning av uppfart</li>
+
+</ul>
+
+<button onclick="openForm('Snabbfix')">
+Boka
+</button>
+
+</div>
+
 
 <!-- HEMMAFIX -->
+
 <div class="card">
+
 <h3>HEMMAFIX</h3>
-<div class="price">500 – 700 kr</div>
-<ul>
-<li>Gräsklippning</li>
-<li>Kanttrimning</li>
-<li>Uppfartssopning</li>
-<li>Fönsterputs (in eller ut)</li>
-</ul>
-<button onclick="openForm('Hemmafix')">Boka</button>
+
+<div class="price">
+500 – 700 kr
 </div>
 
-<!-- HELT KLART -->
-<div class="card">
-<h3>HELT KLART</h3>
-<div class="price">700 – 900 kr</div>
 <ul>
+
 <li>Gräsklippning</li>
+
 <li>Kanttrimning</li>
-<li>Uppfräschning av uppfart</li>
-<li>Fönsterputs (inne & ute)</li>
-<li>Borttagning av gräs/ogräs</li>
+
+<li>Uppfartssopning</li>
+
+<li>Fönsterputs (in eller ut)</li>
+
 </ul>
-<button onclick="openForm('Helt klart')">Boka</button>
+
+<button onclick="openForm('Hemmafix')">
+Boka
+</button>
+
+</div>
+
+
+<!-- HELT KLART -->
+
+<div class="card">
+
+<h3>HELT KLART</h3>
+
+<div class="price">
+700 – 900 kr
+</div>
+
+<ul>
+
+<li>Gräsklippning</li>
+
+<li>Kanttrimning</li>
+
+<li>Uppfräschning av uppfart</li>
+
+<li>Fönsterputs (inne & ute)</li>
+
+<li>Borttagning av gräs/ogräs</li>
+
+</ul>
+
+<button onclick="openForm('Helt klart')">
+Boka
+</button>
+
 </div>
 
 </div>
 
 </section>
+
 
 <section class="contact">
 
 <h2>Kontakta oss</h2>
+
 <p>✉️ info.uppfrascharna@gmail.com</p>
+
 <p>📍 Verksamma i Göteborg</p>
 
 </section>
 
+
 <footer>
+
 © 2026 Uppfräschnings Tjänster
+
 </footer>
 
-<!-- BOKNINGS POPUP -->
-<div class="modal" id="bookingModal">
-<div class="modal-content">
-<span class="close" onclick="closeForm()">×</span>
-<h3>Boka tjänst</h3>
 
-<form action="mailto:info.uppfrascharna@gmail.com" method="post" enctype="text/plain">
-<input type="text" name="namn" placeholder="Ditt namn" required>
-<input type="text" name="adress" placeholder="Adress" required>
-<input type="text" name="paket" id="packageInput" readonly>
-<textarea name="meddelande" placeholder="Önskad tid / info"></textarea>
-<button type="submit">Skicka bokning</button>
+<!-- NY BOKNING MED FORMSPREE -->
+
+<div class="modal" id="bookingModal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeForm()">
+×
+</span>
+
+<h3>
+Boka tjänst
+</h3>
+
+
+<form
+action="https://formspree.io/f/xdaqovwe"
+method="POST"
+accept-charset="UTF-8"
+>
+
+
+<!-- NAMN -->
+
+<input
+type="text"
+name="name"
+placeholder="Ditt namn"
+required
+>
+
+
+<!-- E-POST -->
+
+<input
+type="email"
+name="email"
+placeholder="Din e-post"
+required
+>
+
+
+<!-- ADRESS -->
+
+<input
+type="text"
+name="address"
+placeholder="Adress"
+required
+>
+
+
+<!-- PAKET -->
+
+<input
+type="text"
+name="package"
+id="packageInput"
+placeholder="Valt paket"
+readonly
+required
+>
+
+
+<!-- MEDDELANDE -->
+
+<textarea
+name="message"
+placeholder="Önskad tid / info"
+></textarea>
+
+
+<!-- ÄMNE TILL DIG -->
+
+<input
+type="hidden"
+name="subject"
+id="subjectInput"
+value="Ny bokning från hemsidan"
+>
+
+
+<button type="submit">
+Skicka bokning
+</button>
+
+
 </form>
 
 </div>
+
 </div>
 
+
 <script>
+
 function openForm(packageName){
+
 document.getElementById("bookingModal").style.display="flex";
+
 document.getElementById("packageInput").value=packageName;
+
+document.getElementById("subjectInput").value=
+"Ny bokning – " + packageName;
+
 }
 
+
 function closeForm(){
+
 document.getElementById("bookingModal").style.display="none";
+
 }
+
+
+/* Stäng popup om man trycker utanför */
+
+window.onclick=function(event){
+
+const modal=document.getElementById("bookingModal");
+
+if(event.target === modal){
+
+modal.style.display="none";
+
+}
+
+}
+
 </script>
+
 
 </body>
 </html>
